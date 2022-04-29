@@ -28,12 +28,3 @@ const galleryOptions = new SimpleLightbox('.gallery a', {
     captionDelay: '300ms',
 });
 
-galleryOptions.addEventListener('click', onImgClick);
-
-function onEscPress(e){
-    if (e.code === 'Escape') {
-        instance.close();
-    };
-};
-
-galleryOptions.addEventListener('click', onEscPress);
