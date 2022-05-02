@@ -14,11 +14,15 @@ function onInputDataSave(e) {
     localStorage.setItem(LOCALSTORAGE_KEY, JSON.stringify({ ...storageDate, ...data }));
 };
 
-function onFormSubmit (e) {
+function onFormSubmit(e) {
     e.preventDefault(); 
-    e.currentTarget.reset();
-    console.log(JSON.parse(localStorage.getItem(LOCALSTORAGE_KEY)));
-    localStorage.removeItem(LOCALSTORAGE_KEY);
+    if (form.elements.email.value == '' || form.elements.message.value == '') {
+        alert('Error, all fields must be filled!!');
+        return;
+    } 
+        e.currentTarget.reset();
+        console.log(JSON.parse(localStorage.getItem(LOCALSTORAGE_KEY)));
+        localStorage.removeItem(LOCALSTORAGE_KEY);
         data = {};
 };
 
@@ -27,5 +31,7 @@ function onFormSubmit (e) {
     Object.keys(savedDataForm ?? {}).forEach((item) => form[item].value = savedDataForm[item]);
 });
 
-form.elements.email.setAttribute('required', true);
-form.elements.message.setAttribute('required', true);
+
+// form.elements.email.setAttribute('required', true);
+// form.elements.message.setAttribute('required', true);
+
