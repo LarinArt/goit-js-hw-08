@@ -27,7 +27,7 @@ function onFormSubmit(e) {
 
 (function () {
     const savedDataForm = JSON.parse(localStorage.getItem(LOCALSTORAGE_KEY));
-    Object.keys(savedDataForm ?? {}).forEach((item) => form[item].value = savedDataForm[item]);
+    Object.keys(savedDataForm).forEach((item) => form[item].value = savedDataForm[item]);
 });
 
 
